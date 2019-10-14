@@ -14,7 +14,7 @@ pi = pigpio.pi()
 def getValues():
   url = 'http://127.0.0.1/api/job'
   resp = requests.get(url)
-  date = resp.json()
+  data = resp.json()
   return data
 
 # pi.set_PWM_dutycycle(r[0], r[1])
