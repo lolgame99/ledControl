@@ -12,7 +12,7 @@ pi = pigpio.pi()
 # if ETC > 5h -> wait 1h
 
 def getValues():
-  return json.loads(requests.get('127.0.0.1/api/job').json())
+  return json.loads(requests.get('http://127.0.0.1/api/job').json())
 
 # pi.set_PWM_dutycycle(r[0], r[1])
 # red - 17
@@ -37,7 +37,7 @@ def changeLight(status):
 
   if status == "Printing":
     # White light
-    updateLight(120, 120, 120)
+    updateLight(255, 255, 255)
 
   if status == "Pausing" or status == "Paused":
     # Yellow light
@@ -55,7 +55,7 @@ if __name__ == "__main__":
   # TODO: If print is done -> check for changed status every 5min??
 
   # If status hasn't changed -> Wait 2/3 of expected time remaining
-  # 2sec < ETR < 5h 
+  # 2sec < ETR < 5h
   time = 0
   if r["state"] == status:
     if r["progress"]["printTimeLeft"] < 2:
