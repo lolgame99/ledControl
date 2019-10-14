@@ -12,7 +12,10 @@ pi = pigpio.pi()
 # if ETC > 5h -> wait 1h
 
 def getValues():
-  return json.dumps(requests.get('http://127.0.0.1/api/job').json())
+  url = 'http://127.0.0.1/api/job'
+  resp = requests.get(url)
+  date = resp.json()
+  return data
 
 # pi.set_PWM_dutycycle(r[0], r[1])
 # red - 17
