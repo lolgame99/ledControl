@@ -33,26 +33,32 @@ def changeLight(status):
   if status == "Offline":
     # No light
     updateLight(0, 0, 0)
+    print("Changed lights to Offline")
 
   if status == "Error" or status == "Cancelling":
     # Red light
     updateLight(255, 0, 0)
+    print("Changed lights to Error")
 
   if status == "Printing":
     # White light
     updateLight(255, 255, 255)
+    print("Changed lights to Printing")
 
   if status == "Pausing" or status == "Paused":
     # Yellow light
     updateLight(255, 255, 0)
+    print("Changed lights to Paused")
 
   if status == "Operational":
     # Green light
     updateLight(0, 255, 0)
+    print("Changed lights to Operational")
 
 
 if __name__ == "__main__":
   status = ""
+  print('Checking Status...')
   r = getValues()
   # BUG: What is timeremainvalue if print is done? Wait some time if print is done
   # TODO: If print is done -> check for changed status every 5min??
