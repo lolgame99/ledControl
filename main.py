@@ -70,9 +70,9 @@ if __name__ == "__main__":
     if r["progress"]["printTimeLeft"] < 2:
       time = 2
     elif r["progress"]["printTimeLeft"] > 18000:
-      time = 3600
+      time = 300
     else:
-      time = (2/3) * r["progress"]["printTimeLeft"]
+      time = 300
 
     sleep(time)
 
